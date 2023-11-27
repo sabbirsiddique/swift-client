@@ -25,7 +25,7 @@ const Banner = () => {
           // value ={search}
           // onChange={(e)=>setSearch(e && e.target.value)}
         />
-        <button className="hover:bg-red-700 btn-square text-white w-[110px] bg-[#FF444A]"
+        <button className="hover:bg-[#FDC300] btn-square text-white w-[110px] bg-[#ffd53f]"
         // onClick={handleSearch}
         >
           SEARCH
