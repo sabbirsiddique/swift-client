@@ -5,15 +5,15 @@
 const SingleFeature = ({ feature }) => {
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className="card card-compact w-96 bg-gradient-to-r from-indigo-500 shadow-xl">
         <figure className="relative overflow-hidden">
           <img
             src={feature.icon}
-            className="object-cover transition-transform transform duration-1000 hover:scale-110"
+            className="object-cover transition-transform transform duration-1000 hover:scale-110 mt-3"
           />
         </figure>
         <div className="card-body">
-          <p className="bg-gray-100 text-center bg-cover p-4 text-xl font-bold rounded-md">
+          <p className=" text-center bg-cover p-2 text-xl font-bold rounded-md">
             {feature.title}
           </p>
           <p>{feature.description}</p>
