@@ -1,12 +1,20 @@
+import CountUp from 'react-countup';
 const Stat = () => {
   return (
     <div className="text-center">
-        <h1 className="italic text-3xl uppercase text-center relative"><strong>stat</strong></h1>
-        <hr className="mt-2 mb-5 w-10 mx-auto border-b-2 border-[#FDC300]"/>
+      <h1 className="italic text-3xl uppercase text-center relative">
+        <strong>stat</strong>
+      </h1>
+      <hr className="mt-2 mb-5 w-10 mx-auto border-b-2 border-[#FDC300]" />
       <div className="stats stats-vertical lg:stats-horizontal shadow">
         <div className="stat">
           <div className="stat-title">Total Parcel</div>
-          <div className="stat-value">31K</div>
+          <div className="stat-value">
+            <CountUp
+                end={31000}
+                duration={5}
+            ></CountUp>
+          </div>
           <div className="stat-desc">Jan 1st - Feb 1st</div>
         </div>
 
