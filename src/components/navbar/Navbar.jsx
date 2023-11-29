@@ -1,7 +1,20 @@
+import { useContext } from "react";
 import { FiBell } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext();
+
+  const handleLogOut = () => {
+    logOut()
+      // eslint-disable-next-line no-unused-vars
+      .then((res) => {
+        Swal.fire("Good job!", "You are logged out!", "success");
+      })
+      .catch();
+  };
   return (
     <div>
       <div className="navbar rounded-md fixed z-10 bg-opacity-40 backdrop-blur-sm bg-[#8688F4] text-white max-w-screen-xl">
@@ -78,7 +91,54 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {/* split('@')[0].replace(/\d/g, '').toUpperCase() */}
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://i.ibb.co/g7Vwd0R/user-1.png" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+               
+                  <NavLink to="/addedfood">My added food items</NavLink>
+                    
+                  
+                </li>
+                <li>
+                  <NavLink to="/addfood">Add a food item</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/orderedfood">My ordered food items</NavLink>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+          {user && (
+            <span className="mr-2">
+              {user.email.split("@")[0].replace(/\d/g, "").toUpperCase()}
+            </span>
+          )}
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="btn text-black font-bold"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="btn text-black font-bold">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

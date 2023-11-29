@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Notification from "../pages/Notification";
+import Register from "../pages/Register";
 // import Home from "../home/home/Home";
 
 
@@ -24,6 +25,14 @@ export const router = createBrowserRouter([
         path:"/notification",
         element:<Notification></Notification>,
       },
+      {
+        path:"/register",
+        element:<Register></Register>,
+      },
+      {
+        path:"/login",
+        element:<Register></Register>,
+      }
       
 
       
