@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { FiBell } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
 
-  const { user, logOut } = useContext();
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
