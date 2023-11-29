@@ -1,20 +1,33 @@
-const SingleDeliveryMan = () => {
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
+
+/* eslint-disable react/prop-types */
+const SingleDeliveryMan = ({ singleman }) => {
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-[425px] bg-[#8688F4] bg-opacity-40 shadow-xl">
         <figure className="px-10 pt-10">
           <img
-            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
-            className="rounded-xl"
+            src={singleman.image}
+            className="rounded-xl object-cover transition-transform transform duration-1000 hover:scale-110"
           />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+          <h2 className="card-title">{singleman.name}</h2>
+          <p className="flex items-center">
+            <IoCheckmarkDoneCircle className="text-green-500 w-5 h-5 mr-1"></IoCheckmarkDoneCircle>
+            Parcel Delivered: {singleman.parcelsDelivered}
+            
+          </p>
+          <p>
+            Rating: {singleman.averageRating}
+            <Rating
+              style={{ maxWidth: 180 }}
+              value={singleman.averageRating}
+              readOnly
+            />
+          </p>
         </div>
       </div>
     </div>
