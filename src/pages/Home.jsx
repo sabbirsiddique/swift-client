@@ -1,5 +1,6 @@
 import Banner from "../components/navbar/HomeComponent/Banner";
 import Features from "../components/navbar/HomeComponent/Ourfeature/Features";
+import TopDeliveryMan from "../components/navbar/HomeComponent/deliveryman/TopDeliveryMan";
 import Stat from "../components/navbar/HomeComponent/stat/Stat";
 
 const Home = () => {
@@ -13,6 +14,9 @@ const Home = () => {
       </div>
       <div className="mb-10">
         <Stat></Stat>
+      </div>
+      <div className="mb-10">
+        <TopDeliveryMan></TopDeliveryMan>
       </div>
     </div>
   );

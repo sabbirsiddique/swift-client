@@ -21,7 +21,7 @@ const Banner = () => {
         <input
           type="text"
           placeholder="Search…"
-          className="input input-bordered"
+          className="input input-bordered text-black text-xl"
           // value ={search}
           // onChange={(e)=>setSearch(e && e.target.value)}
         />
