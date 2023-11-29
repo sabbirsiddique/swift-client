@@ -1,10 +1,13 @@
+import { Helmet } from "react-helmet-async";
 
 const Notification = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <div>
+      <Helmet>
+        <title>SwiftSend |Notifications</title>
+      </Helmet>
+    </div>
+  );
 };
 
 export default Notification;

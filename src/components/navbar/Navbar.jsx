@@ -53,7 +53,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost italic normal-case text-2xl">SwiftSend</a>
+          <img className="btn btn-ghost text-2xl" src="https://i.ibb.co/XC2S0Jv/logo.png" alt="" />
+          {/* <a className="btn btn-ghost italic normal-case text-2xl">SwiftSend</a> */}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="gap-10 menu-horizontal px-1">
