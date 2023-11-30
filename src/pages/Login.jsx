@@ -50,7 +50,7 @@ const Login = () => {
       <Helmet>
         <title>SwiftSend |Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-[url('https://i.ibb.co/3RnPXsC/pexels-pixabay-531880.jpg')]">
+      <div className="hero min-h-screen bg-[url('https://i.ibb.co/Bn8rSBL/pexels-karolina-grabowska-4194853.jpg')]">
         <div className="hero-content w-[500px] flex-col lg:flex-row-reverse">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-transparent">
             <form onSubmit={handleLogin} className="card-body backdrop-blur-lg">
