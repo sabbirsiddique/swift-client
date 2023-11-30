@@ -5,6 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Notification from "../pages/Notification";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import PrivateRoutes from "./PrivateRoutes";
 // import Home from "../home/home/Home";
 
 
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path:"/dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       },
       {
         path:"/notification",

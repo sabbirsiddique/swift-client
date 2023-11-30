@@ -15,19 +15,27 @@ const Stat = () => {
                 duration={5}
             ></CountUp>
           </div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
+          <div className="stat-desc"></div>
         </div>
 
         <div className="stat">
           <div className="stat-title">Total Parcel Delivery</div>
-          <div className="stat-value">4,200</div>
-          <div className="stat-desc">↗︎ 400 (22%)</div>
+          <div className="stat-value">
+          <CountUp
+                end={4200}
+                duration={5}
+            ></CountUp>
+          </div>
+          <div className="stat-desc"></div>
         </div>
 
         <div className="stat">
           <div className="stat-title">Registered Users</div>
-          <div className="stat-value">1,200</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
+          <div className="stat-value"><CountUp
+                end={1200}
+                duration={5}
+            ></CountUp></div>
+          <div className="stat-desc"></div>
         </div>
       </div>
     </div>
