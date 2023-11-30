@@ -1,17 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FiBell } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
+  const [isOpen,setIsOpen]=useState(false)
+
+  const toggleDropdown=()=>{
+    setIsOpen(!isOpen)
+  }
 
   const handleLogOut = () => {
     logOut()
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
+        setIsOpen(false)
         Swal.fire("Good job!", "You are logged out!", "success");
       })
       .catch();
@@ -49,11 +54,17 @@ const Navbar = () => {
               </li>
 
               <li>
-               <Link to="/notification"><FiBell></FiBell></Link>
+                <Link to="/notification">
+                  <FiBell></FiBell>
+                </Link>
               </li>
             </ul>
           </div>
-          <img className="btn btn-ghost text-2xl" src="https://i.ibb.co/XC2S0Jv/logo.png" alt="" />
+          <img
+            className="btn btn-ghost text-2xl"
+            src="https://i.ibb.co/XC2S0Jv/logo.png"
+            alt=""
+          />
           {/* <a className="btn btn-ghost italic normal-case text-2xl">SwiftSend</a> */}
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -87,35 +98,43 @@ const Navbar = () => {
               >
                 <FiBell className="w-5 h-5"></FiBell>
               </NavLink>
-
-              
             </li>
           </ul>
         </div>
         <div className="navbar-end">
           {/* split('@')[0].replace(/\d/g, '').toUpperCase() */}
           {user ? (
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="dropdown dropdown-end text-black relative">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar" onClick={toggleDropdown}>
                 <div className="w-10 rounded-full">
                   <img src="https://i.ibb.co/g7Vwd0R/user-1.png" />
                 </div>
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className={`menu menu-sm dropdown-content mt-3 z-[1] text-xl p-2 shadow bg-gradient-to-r from-indigo-300 rounded-box w-52 absolute right-0 transform ${isOpen?'-translate-y-[500px] duration-[2000ms]' : ''}`}
               >
-                <li>
-               
-                  <NavLink to="/addedfood">My added food items</NavLink>
-                    
-                  
+                <p className="ml-3 font-bold">
+                  {user && (
+                    <span className="mr-2 ">
+                      {user.email
+                        .split("@")[0]
+                        .replace(/\d/g, "")
+                        .toUpperCase()}
+                    </span>
+                  )}
+                </p>
+
+                <li className="text-xl">
+                  <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/addfood">Add a food item</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/orderedfood">My ordered food items</NavLink>
+                  <button
+                    onClick={handleLogOut}
+                    className="text-black font-bold"
+                  >
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>
@@ -128,17 +147,12 @@ const Navbar = () => {
             </span>
           )}
           {user ? (
-            <button
-              onClick={handleLogOut}
-              className="btn text-black font-bold"
-            >
+            <button onClick={handleLogOut} className="btn text-black font-bold">
               Logout
             </button>
           ) : (
             <Link to="/login">
-              <button className="btn text-black font-bold">
-                Login
-              </button>
+              <button className="btn text-black font-bold">Login</button>
             </Link>
           )}
         </div>
